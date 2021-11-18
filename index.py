@@ -1,5 +1,16 @@
-import functools
+
 import streamlit as st
+
+@st.cache
+def install_extra_streamlit_components():
+    try:
+        import extra_streamlit_components as stx
+    except:
+        import subprocess
+        subprocess.run(["pip", "install", "extra_streamlit_components", "--user"], capture_output=True)
+
+install_extra_streamlit_components()
+
 import extra_streamlit_components as stx
 import datetime
 
